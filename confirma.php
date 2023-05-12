@@ -15,7 +15,7 @@
 			
 			if (in_array($email, $confirmados)) {
 				echo "Convidado já foi confirmado!";
-				header("Refresh: 2;url=index.php");
+				header("Refresh: 2;url=index.html");
 				exit();
 			}
         }
@@ -26,7 +26,7 @@
     fputcsv($fp, array($nome, $email, $telefone, $acomp1, $acomp2, $acomp3));
     fclose($fp);
 
-    header("Location: index.php?msg=Confirmação de presença realizada com sucesso.");
+    header("Location: index.html?msg=Confirmação de presença realizada com sucesso.");
 
     echo "Presença confirmada!";
     exit();
