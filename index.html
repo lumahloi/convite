@@ -16,17 +16,34 @@
         div#baloes {
             position: fixed;
             z-index: -1;
-            width: 35vw;
-            height: 80vh;
-            top: 50;
-            background-repeat: no-repeat;
-            background-position: left;
-            background-size: contain;
-            background-image: url(balloons-c9p.png);
+            display: flex;
+            width: 100vw;
+            justify-content: space-between;
         }
 
-        nav {
+        .balao{
+            width: 25vw;
+            height: 80vh;
+            display: block;
+        }
+
+        #b_invertido{
+            -webkit-transform: scaleX(-1);
+            transform: scaleX(-1);
+        }
+
+        nav{
             background-color: rgb(91, 18, 109);
+        }
+
+        footer {
+            padding: 8px;
+        }
+
+        #p_footer{
+            margin: 0px;
+            font-size: 1em;
+            text-align: right;
         }
 
         a {
@@ -60,7 +77,7 @@
         h1 {
             font-family: 'Lily Script One', cursive;
             color: white;
-            font-size: 4em;
+            font-size: 5em;
             margin: 80px auto;
             text-align: center;
             text-shadow: 10px 10px 70px rgb(107, 47, 116);
@@ -97,14 +114,13 @@
             display: flex;
             flex-direction: row;
             justify-content: center;
-            column-gap: 80px;
+            column-gap: 30px;
             margin: 150px auto;
         }
 
         .item {
             width: 250px;
             height: 100px;
-
             align-self: center;
         }
 
@@ -160,10 +176,14 @@
             <li><a href="#info">Horário</a></li>
             <li><a href="#info">Local</a></li>
             <li><a href="#convite">Confirmar presença</a></li>
+            <li><a href="adm.php">Visualizar convidados</a></li>
         </ul>
     </nav>
 
-    <div id="baloes"></div>
+    <div id="baloes">
+        <img src="balao.png" class="balao" alt="Balão">
+        <img src="balao.png" class="balao" id="b_invertido" alt="Balão">
+    </div>
 
     <header>
         <h1>10011 da Lumah</h1>
@@ -185,28 +205,27 @@
     </section>
 
     <p>Uma grande festa não é nada sem grandes convidados.<br> Venha comemorar meu aniversário!</p>
-
-    <section id="convite" class="sec2">
+    <h2 id="convite">Confirme sua presença</h2>
+    <section class="sec2">
         <form method="post" action="confirma.php">
-            <label for="nome"><h3>Nome:</h3></label>
+            <label for="nome"><h3>Nome*:</h3></label>
             <input type="text" name="nome" id="nome" placeholder="Nome" required>
 
-            <label for="email"><h3>Email:</h3></label>
+            <label for="email"><h3>Email*:</h3></label>
             <input type="text" name="email" id="email" placeholder="Email" required>
 
-            <label for="telefone"><h3>Telefone:</h3></label>
-            <input type="number" name="telefone" id="telefone" placeholder="Telefone" maxlength="11" required>
+            <label for="telefone"><h3>Telefone*:</h3></label>
+            <input type="number" name="telefone" id="telefone" placeholder="(01) 10101-1111" maxlength="15" required>
 
             <label for="acompanhantes"><h3>Acompanhantes:</h3></label>
-            <input type="text" name="acomp1" id="acomp1" placeholder="Nome" class="acomp">
-            <input type="text" name="acomp2" id="acomp2" placeholder="Nome" class="acomp">
-            <input type="text" name="acomp3" id="acomp3" placeholder="Nome" class="acomp"><br>
+            <input type="text" name="acomp1" id="acomp1" placeholder="Nome do primeiro acompanhante" class="acomp">
+            <input type="text" name="acomp2" id="acomp2" placeholder="Nome do segundo acompanhante" class="acomp">
+            <input type="text" name="acomp3" id="acomp3" placeholder="Nome do terceiro acompanhante" class="acomp"><br>
 
             <button type="submit">Confirmar presença</button>
         </form>
     </section>
 
-    <p><a href="adm.php">Página do administrador</a></p>
-
+    <footer><p id="p_footer">Site criado por <a href="https://github.com/lumahloi">Lumah Loise</a></p></footer>
 </body>
 </html>
